@@ -1,9 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SoftwareController = void 0;
+const software_collection_1 = require("./software.collection");
 class SoftwareController {
-    static list(req, res, next) {
-        throw new Error("Ceci est un message d'erreur");
+    static async list(req, res, next) {
+        const softwares = await software_collection_1.softwareCollection.find({}).limit(20).toArray();
+        softwares.forEach((software) => {
+            console.log(software);
+        });
     }
 }
 exports.SoftwareController = SoftwareController;
