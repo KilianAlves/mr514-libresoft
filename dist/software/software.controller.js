@@ -8,7 +8,8 @@ class SoftwareController {
             id: 1,
             name: 1,
             url: 1,
-            description: 1
+            description: 1,
+            external_resources: 1
         }).limit(20).toArray();
         softwares.forEach((software) => {
             console.log(software);
