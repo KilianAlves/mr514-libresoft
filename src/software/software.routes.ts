@@ -1,9 +1,9 @@
 import express from "express";
 import { SoftwareController } from "./software.controller";
-import { userInfo } from "os";
+import expressAsyncHandler from 'express-async-handler';
 
 var router = express.Router();
 
-router.get('/', SoftwareController.list);
+router.get('/', expressAsyncHandler(SoftwareController.list));
 
 module.exports = router;

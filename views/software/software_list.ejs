@@ -1,0 +1,10 @@
+<%- include('../partials/header') -%>
+<div class="d-flex flex-wrap flex-row bd-highlight mb-3 justify-content-around" style="max-width: 1200px;margin: auto; ">
+<% for(var i = 0; i < softwares.length; i++) { %>
+    <div class="card shadow" style="width: 18rem; margin-bottom: 10px;">
+        <a  href="<%= softwares[i].url %>"><img class="img-fluid rounded-start" src="/images/software/<%= softwares[i].id %>.png" ></a>
+        <a href="<%= softwares[i].url %>" ><h2  class="card-title"><%= softwares[i]["name"] %></h2></a>
+        <p class="card-text"><%= softwares[i]["description"] %></p>
+    </div>
+<% } %>
+</div>

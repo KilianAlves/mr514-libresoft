@@ -7,7 +7,7 @@ export class SoftwareController {
         const softwares = await softwareCollection.find({}).project({
             id: 1,
             name: 1,
-            website: 1,
+            url: 1,
             description: 1
         }).limit(20).toArray();
 
@@ -15,5 +15,8 @@ export class SoftwareController {
             console.log(software);
         }
         );
+
+        res.render('software/software_list', { softwares });
+        next();
     }
 }
