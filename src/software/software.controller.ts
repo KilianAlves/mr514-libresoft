@@ -3,8 +3,8 @@ import { NextFunction } from "express";
 import {softwareCollection} from "./software.collection";
 
 export class SoftwareController {
-    static async list(req: Request, res: Response, next: NextFunction): Promise<void> {
-        const softwares = await softwareCollection.find({}).project({
+    static async list(req: Request, res: Response, next: NextFunction): Promise<void> { // mettre un size et deplacer project dans agregate
+        const softwares = await softwareCollection.aggregate({}).project({
             id: 1,
             name: 1,
             url: 1,

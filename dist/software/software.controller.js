@@ -4,7 +4,7 @@ exports.SoftwareController = void 0;
 const software_collection_1 = require("./software.collection");
 class SoftwareController {
     static async list(req, res, next) {
-        const softwares = await software_collection_1.softwareCollection.find({}).project({
+        const softwares = await software_collection_1.softwareCollection.aggregate({}).project({
             id: 1,
             name: 1,
             url: 1,
