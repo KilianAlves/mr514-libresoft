@@ -16,7 +16,32 @@
         <% if(softwares[i].external_resources.wikidata != null) { %>
             <a href="<%= softwares[i].external_resources.wikidata.url %>"><img style="border: 2px solid; border-radius: 5px;" src="/images/sites/framalibre.png" ></a>
         <% } %>
+        <% if(softwares[i].userCount != 0) { %>
+            <div class="btn btn-primary">
+                <img src="/images/user.png" >
+                <span class="badge badge-light"><%= softwares[i].userCount %></span>
+            </div>
+        <% } %>
         </div>
     </div>
 <% } %>
 </div>
+
+<nav aria-label="...">
+    <% var maxPage = (totalDocs/20 +1).toFixed(0) %>
+    <ul class="pagination">
+        <% if(currentPage != 1) { %>
+            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            <li class="page-item"><a class="page-link" href="?page=<%= currentPage-1 %>">←</a></li>
+        <% } %>
+      
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="?page=<%= currentPage %>"><%= currentPage %></a>
+      </li>
+      <% if(currentPage != maxPage) { %>
+        <li class="page-item"><a class="page-link" href="?page=<%= currentPage+1 %>">→</a></li>
+        <li class="page-item"><a class="page-link" href="?page=<%= maxPage %>"><%= maxPage %></a></li>
+    <% } %>
+  
+    </ul>
+  </nav>
