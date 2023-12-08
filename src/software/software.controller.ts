@@ -13,8 +13,17 @@ export class SoftwareController {
         }
 
         const currentPage = req.query.page ? parseInt(req.query.page as string) : 1;
+        const search = req.query.search ? req.query.search : '';
 
         const softwares = await softwareCollection.aggregate([
+            {
+                $match: {
+                    $or: [
+                        { name: { $regex: search, $options: 'i' } },
+                        { description: { $regex: search, $options: 'i' } }
+                    ]
+                }
+            },
             {
                 $facet: {
                     data: [
@@ -45,7 +54,7 @@ export class SoftwareController {
         }
         );
 
-        res.render('software/software_list', { softwares: softwares[0].data, totalDocs:  softwares[0].totalCount[0].total, currentPage});
+        res.render('software/software_list', { softwares: softwares[0].data, totalDocs:  softwares[0].totalCount[0].total, currentPage, search});
         next();
     }
 }

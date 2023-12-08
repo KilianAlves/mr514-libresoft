@@ -10,7 +10,16 @@ class SoftwareController {
             throw new Error("Page is less than 1 or isn't a numer");
         }
         const currentPage = req.query.page ? parseInt(req.query.page) : 1;
+        const search = req.query.search ? req.query.search : '';
         const softwares = await software_collection_1.softwareCollection.aggregate([
+            {
+                $match: {
+                    $or: [
+                        { name: { $regex: search, $options: 'i' } },
+                        { description: { $regex: search, $options: 'i' } }
+                    ]
+                }
+            },
             {
                 $facet: {
                     data: [
@@ -37,7 +46,7 @@ class SoftwareController {
         softwares.forEach((software) => {
             console.log(software);
         });
-        res.render('software/software_list', { softwares: softwares[0].data, totalDocs: softwares[0].totalCount[0].total, currentPage });
+        res.render('software/software_list', { softwares: softwares[0].data, totalDocs: softwares[0].totalCount[0].total, currentPage, search });
         next();
     }
 }

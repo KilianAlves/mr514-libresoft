@@ -6,7 +6,8 @@ import { query } from "express-validator";
 var router = express.Router();
 
 router.get('/',
-    query('page').isInt({ min: 1 }).optional()
-    , expressAsyncHandler(SoftwareController.list));
+    query('page').isInt({ min: 1 }).optional(),
+    query('search').isString().isLength({min: 3}).optional()
+    , expressAsyncHandler(SoftwareController.list))
 
 module.exports = router;

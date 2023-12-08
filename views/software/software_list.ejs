@@ -28,7 +28,10 @@
 </div>
 
 <nav aria-label="...">
-    <% var maxPage = (totalDocs/20 +1).toFixed(0) %>
+    <% 
+        var maxPage = (totalDocs/20 +1).toFixed(0) 
+        // var search = search? "&?search=" + search:""
+    %>
     <ul class="pagination">
         <% if(currentPage != 1) { %>
             <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
