@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const express_session_1 = __importDefault(require("express-session"));
 require('dotenv').config();
 var routes = require('./software/software.routes');
+var usersRouter = require('./users/usersRouter.routes');
 const app = (0, express_1.default)();
 // Session
 app.use((0, express_session_1.default)({
@@ -15,6 +16,7 @@ app.use((0, express_session_1.default)({
     resave: false
 }));
 app.use('/', routes);
+app.use('/users', usersRouter);
 const port = process.env.port;
 app.set('view engine', 'ejs');
 app.use(express_1.default.static('public'));

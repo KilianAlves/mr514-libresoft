@@ -4,6 +4,7 @@ import session from "express-session";
 require('dotenv').config();
 
 var routes = require('./software/software.routes');
+var usersRouter = require('./users/usersRouter.routes');
 const app = express()
 
 // Session
@@ -15,6 +16,8 @@ app.use(session({
 
 
 app.use('/', routes);
+
+app.use('/users', usersRouter);
 
 const port = process.env.port;
 app.set('view engine', 'ejs');
