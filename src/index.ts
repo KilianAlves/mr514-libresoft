@@ -4,7 +4,7 @@ import session from "express-session";
 require('dotenv').config();
 
 var routes = require('./software/software.routes');
-var usersRouter = require('./users/usersRouter.routes');
+var usersRouter = require('./users/users.routes');
 const app = express()
 
 // Session

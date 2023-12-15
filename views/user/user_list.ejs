@@ -1,0 +1,11 @@
+<%- include('../partials/header') -%>
+<div class="d-flex flex-wrap flex-row bd-highlight mb-3 justify-content-around" style="max-width: 1200px;margin: auto; ">
+        <% for(var i = 0; i < users.length; i++) { %>
+            <div class="card shadow text-center" style="width: 18rem; height: 10rem; margin-bottom: 10px;">
+                <div class="card-body">
+                    <a href="<%= users[i].url %>"><p class="card-text"><%= users[i].name %></p></a>
+                    <span class="btn btn-danger"><%= users[i].type %></span>
+                </div>
+            </div>
+        <% } %>
+    </div>

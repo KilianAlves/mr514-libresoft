@@ -17,10 +17,12 @@
             <a href="<%= softwares[i].external_resources.wikidata.url %>"><img style="border: 2px solid; border-radius: 5px;" src="/images/sites/framalibre.png" ></a>
         <% } %>
         <% if(softwares[i].userCount != 0) { %>
+            <a href="/users/<%= softwares[i].id %>">
             <div class="btn btn-primary">
                 <img src="/images/user.png" >
-                <span class="badge badge-light"><%= softwares[i].userCount %></span>
+                <span class="btn btn-danger" ><%= softwares[i].userCount %></span>
             </div>
+            </a>
         <% } %>
         </div>
     </div>

@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const express_session_1 = __importDefault(require("express-session"));
 require('dotenv').config();
 var routes = require('./software/software.routes');
-var usersRouter = require('./users/usersRouter.routes');
+var usersRouter = require('./users/users.routes');
 const app = (0, express_1.default)();
 // Session
 app.use((0, express_session_1.default)({
