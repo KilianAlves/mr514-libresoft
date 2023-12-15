@@ -19,6 +19,15 @@ SoftwareSchema.schema = {
                 bsonType: 'string',
                 description: "'name' is required and is a string"
             },
+            url: {
+                bsonType: 'string',
+            },
+            id: {
+                bsonType: 'int',
+                minimum: 1
+            },
+            description: {},
+            external_resources: [],
         }
     }
 };
