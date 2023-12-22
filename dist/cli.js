@@ -16,7 +16,7 @@ switch (cmd) {
         promise = software_collection_1.SoftwareSchema.insertTestDocument({
             name: 'Libresoft',
             url: 'http://localhost:7000',
-            id: 5,
+            id: 0,
             description: "TP MR514",
             external_resources: {
                 website: 'http://localhost:7000',

@@ -49,5 +49,31 @@ class SoftwareController {
         res.render('software/software_list', { softwares: softwares[0].data, totalDocs: softwares[0].totalCount[0].total, currentPage, search });
         next();
     }
+    static async edit(req, res, next) {
+        const id = parseInt(req.params.id);
+        const software = await software_collection_1.softwareCollection.findOne({ id });
+        res.render('software/software_edit', { software });
+        next();
+    }
+    static async update(req, res, next) {
+        console.log(req.body);
+        const id = parseInt(req.params.id);
+        const description = req.body.description;
+        const website = req.body.website;
+        const framalibre = req.body.framalibre;
+        const wikipedia = req.body.wikipedia;
+        const sill = req.body.sill;
+        await software_collection_1.softwareCollection.updateOne({ id }, {
+            $set: {
+                "description": description,
+                "external_resources.website": website,
+                "external_resources.framalibre.url": framalibre,
+                "external_resources.wikipedia.url": wikipedia,
+                "external_resources.sill.url": sill,
+            }
+        });
+        res.redirect('/edit/' + id);
+        next();
+    }
 }
 exports.SoftwareController = SoftwareController;

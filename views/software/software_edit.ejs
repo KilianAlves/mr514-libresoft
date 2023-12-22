@@ -1,0 +1,25 @@
+<%- include('../partials/header') -%>
+<form method="post">
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name="description" value="<%= software.description %>">
+    </div>
+    <div class="form-group">
+        <label>Website</label>
+        <input type="text" class="form-control" name="url" value="<%= software.url %>">
+    </div>
+    <div class="form-group">
+        <label>framalibre</label>
+        <input type="text" class="form-control" name="framalibre" value="<%= software.external_resources.framalibre.url %>">
+    </div>
+    <div class="form-group">
+        <label>sill</label>
+        <input type="text" class="form-control" name="sill" value="<%= software.external_resources.sill.url %>">
+    </div>
+    <div class="form-group">
+        <label>wikipedia</label>
+        <input type="text" class="form-control" name="wikipedia" value="<%= software.external_resources.wikipedia.url %>">
+     </div>
+    <input type="hidden" name="id" value="<%= software.id %>">
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>
