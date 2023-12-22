@@ -18,6 +18,16 @@ class SoftwareSchema {
         console.log('softwareSchema :');
         console.dir(options.validator, { depth: null });
     }
+    static async insertTestDocument(software) {
+        try {
+            await exports.softwareCollection.insertOne(software);
+        }
+        catch (err) {
+            const error = err;
+            console.log(error.message);
+            console.dir(error.errInfo?.details, { depth: null });
+        }
+    }
 }
 exports.SoftwareSchema = SoftwareSchema;
 SoftwareSchema.schema = {

@@ -1,3 +1,4 @@
+import { MongoServerError } from "mongodb";
 import { mongodb } from "../services/mongo";
 
 export const softwareCollection = mongodb.collection<Software>('software');
@@ -66,5 +67,15 @@ export class SoftwareSchema {
         console.log('softwareSchema :');
         console.dir(options.validator, { depth: null });
     }
-
+    static async insertTestDocument(software: Software): Promise<void> {
+        try {
+            await softwareCollection.insertOne(software);
+        }
+        catch(err) {
+            const error = err as MongoServerError;
+            console.log(error.message);
+            console.dir(error.errInfo?.details, {depth: null});
+        }
+    }
+    
 }

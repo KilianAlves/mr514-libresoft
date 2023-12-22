@@ -1,9 +1,10 @@
 interface Software {
     id: Number;
     name: string;
-    website: string;
+    url: string;
     description: string;
     users: SoftwareUsers[];
+    external_resources: Array;
 }
 
 interface SoftwareUsers {
