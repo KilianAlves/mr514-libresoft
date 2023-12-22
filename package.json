@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/index.js",
     "watch": "npx tsc-watch --onSuccess \"npm run start\"",
-    "mongo-gui": "npx mongo-gui -u mongodb://mongo-user:mongo-password@localhost:27017"
+    "mongo-gui": "npx mongo-gui -u mongodb://mongo-user:mongo-password@localhost:27017",
+    "redis-gui": "npx redis-commander"
   },
   "author": "ALVES Kilian",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "@typescript-eslint/parser": "^6.11.0",
     "eslint": "^8.53.0",
     "mongo-gui": "^0.0.18",
+    "redis-commander": "^0.8.0",
     "tsc-watch": "^6.0.4",
     "typescript": "^5.2.2"
   },
@@ -31,6 +33,7 @@
     "express-async-handler": "^1.2.0",
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
-    "mongodb": "^6.3.0"
+    "mongodb": "^6.3.0",
+    "redis": "^4.6.12"
   }
 }
