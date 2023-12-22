@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const auth_collection_1 = require("./auth/auth.collection");
 const software_collection_1 = require("./software/software.collection");
 let cmd = 'show-invalid-documents';
 if (process.argv.length > 2)
@@ -23,6 +24,12 @@ switch (cmd) {
             },
             users: []
         });
+        break;
+    case 'apply-contributor-schema':
+        promise = auth_collection_1.ContributorSchema.applyToCollection().then(auth_collection_1.ContributorSchema.dumpFromCollection);
+        break;
+    case 'seed-contributors':
+        promise = (0, auth_collection_1.seedContributors)();
         break;
 }
 promise.then(() => process.exit());

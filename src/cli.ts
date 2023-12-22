@@ -1,3 +1,4 @@
+import { ContributorSchema, seedContributors } from "./auth/auth.collection";
 import { SoftwareSchema } from "./software/software.collection";
 
 let cmd = 'show-invalid-documents';
@@ -26,6 +27,12 @@ switch (cmd) {
                 users: []
             });
             break;
+    case 'apply-contributor-schema':
+        promise = ContributorSchema.applyToCollection().then(ContributorSchema.dumpFromCollection);
+        break;
+    case 'seed-contributors':
+        promise = seedContributors();
+        break;
 }
 
 promise.then(() => process.exit());

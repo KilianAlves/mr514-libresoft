@@ -10,15 +10,15 @@
     </div>
     <div class="form-group">
         <label>framalibre</label>
-        <input type="text" class="form-control" name="framalibre" value="<%= software.external_resources.framalibre.url %>">
+        <input type="text" class="form-control" name="framalibre" value="<%= software.external_resources?.framalibre?.url %>">
     </div>
     <div class="form-group">
         <label>sill</label>
-        <input type="text" class="form-control" name="sill" value="<%= software.external_resources.sill.url %>">
+        <input type="text" class="form-control" name="sill" value="<%= software.external_resources?.sill?.url %>">
     </div>
     <div class="form-group">
         <label>wikipedia</label>
-        <input type="text" class="form-control" name="wikipedia" value="<%= software.external_resources.wikipedia.url %>">
+        <input type="text" class="form-control" name="wikipedia" value="<%= software.external_resources?.wikipedia?.url %>">
      </div>
     <input type="hidden" name="id" value="<%= software.id %>">
     <input type="submit" class="btn btn-primary" value="Submit">
