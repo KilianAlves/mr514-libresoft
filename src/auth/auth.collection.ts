@@ -2,7 +2,7 @@ import { MongoServerError } from "mongodb";
 import { mongodb } from "../services/mongo";
 import { Contributor } from "./auth";
 
-export const contributorCollection = mongodb.collection('contributors');
+export const contributorCollection = mongodb.collection<Contributor>('contributors');
 export async function seedContributors() {
     const bcrypt = require('bcrypt');
     await contributorCollection.deleteMany({});

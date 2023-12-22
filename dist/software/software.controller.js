@@ -50,6 +50,10 @@ class SoftwareController {
         next();
     }
     static async edit(req, res, next) {
+        if (req.session.user === undefined) {
+            res.redirect('/');
+            next();
+        }
         const id = parseInt(req.params.id);
         const software = await software_collection_1.softwareCollection.findOne({ id });
         res.render('software/software_edit', { software });

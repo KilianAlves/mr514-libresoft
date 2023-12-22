@@ -21,7 +21,15 @@
                     <form>
                         <input type="text" class="form-control" id="search" name="search" required>
                         <button type="submit" class="btn btn-success">Rechercher</button>
-                        </form>
+                    </form>
+                    <div class="">
+                        <% if(locals.user) { %>
+                            <p><%= locals.user.name %></p>
+                            <a class="btn btn-success" href="/auth/logout">Déconnexion</a>
+                        <% } else { %>
+                            <a class="btn btn-success" href="/auth/">Connexion</a>
+                        <% } %>
+                    </div>
               </nav>
         </div>
     </div>
