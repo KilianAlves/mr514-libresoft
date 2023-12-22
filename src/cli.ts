@@ -11,6 +11,9 @@ switch (cmd) {
     default:
         promise = SoftwareSchema.showInvalidDocuments();
         break;
+    case 'apply-software-schema':
+        promise = SoftwareSchema.applyToCollection().then(SoftwareSchema.dumpFromCollection);
+        break;
 }
 
 promise.then(() => process.exit());
